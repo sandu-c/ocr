@@ -1,6 +1,7 @@
 {
   "name": "@gutenye/ocr",
   "version": "1.4.8",
+  "main": "./packages/browser/build/index.js",
   "workspaces": [
     "packages/browser",
     "packages/browser/example",

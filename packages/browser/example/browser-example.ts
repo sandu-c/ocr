@@ -9,7 +9,10 @@ async function main() {
       dictionaryPath: '/assets/ppocr_keys_v1.txt',
     },
   })
-  document.querySelector('.hide')!.style.visibility = 'visible'
+  const hideElement = document.querySelector('.hide')
+  if (hideElement) {
+    (hideElement as HTMLElement).style.visibility = 'visible'
+  }
   document.querySelector('#title')!.textContent = 'OCR is ready'
 
   createApp(async ({ imageUrl }) => {
@@ -18,7 +21,7 @@ async function main() {
     const duration = new Date().valueOf() - startTime
 
     return {
-      text: result.texts.map((v) => `${v.mean.toFixed(2)} ${v.text}`).join('\n'),
+      text: result.map((v) => `${v.mean.toFixed(2)} ${v.text}`).join('\n'),
       duration,
     }
   })

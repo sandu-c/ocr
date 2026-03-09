@@ -1,7 +1,7 @@
 {
-  "name": "@gutenye/ocr",
+  "name": "@gutenye/ocr-monorepo",
   "version": "1.4.8",
-  "main": "./packages/browser/build/index.js",
+  "private": true,
   "workspaces": [
     "packages/browser",
     "packages/browser/example",

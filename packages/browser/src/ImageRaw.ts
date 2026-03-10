@@ -1,5 +1,5 @@
-import { ImageRawBase } from '@gutenye/ocr-common'
-import type { ImageRawData, LineImage, SizeOption } from '@gutenye/ocr-common'
+import { ImageRawBase } from '@sanduc/ocr-common'
+import type { ImageRawData, LineImage, SizeOption } from '@sanduc/ocr-common'
 import invariant from 'tiny-invariant'
 
 export class ImageRaw extends ImageRawBase {

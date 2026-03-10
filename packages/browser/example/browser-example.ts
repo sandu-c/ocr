@@ -1,4 +1,4 @@
-import Ocr from '@gutenye/ocr-browser'
+import Ocr from '@sanduc/ocr-browser'
 
 async function main() {
   const ocr = await Ocr.create({

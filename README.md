@@ -13,8 +13,8 @@ Based on [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) and [ONNX Runtim
 > [Example](./packages/node/example/README.md)
 
 ```ts
-bun add @gutenye/ocr-node
-import Ocr from '@gutenye/ocr-node'
+bun add @sanduc/ocr-node
+import Ocr from '@sanduc/ocr-node'
 const ocr = await Ocr.create()
 const result = await ocr.detect('a.jpg')
 ```
@@ -24,8 +24,8 @@ const result = await ocr.detect('a.jpg')
 > [Example](./packages/browser/example/README.md)
 
 ```ts
-bun add @gutenye/ocr-browser
-import Ocr from '@gutenye/ocr-browser'
+bun add @sanduc/ocr-browser
+import Ocr from '@sanduc/ocr-browser'
 const ocr = await Ocr.create({
   models: {
     detectionPath: '/assets/ch_PP-OCRv4_det_infer.onnx',
@@ -41,8 +41,8 @@ const result = await ocr.detect('/a.jpg')
 > [Example](./packages/react-native/example/README.md)
 
 ```ts
-bun add @gutenye/ocr-react-native
-import Ocr from '@gutenye/ocr-react-native'
+bun add @sanduc/ocr-react-native
+import Ocr from '@sanduc/ocr-react-native'
 const ocr = await Ocr.create()
 const result = await ocr.detect('a.jpg')
 ```

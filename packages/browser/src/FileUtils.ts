@@ -1,4 +1,4 @@
-import { FileUtilsBase } from '@gutenye/ocr-common'
+import { FileUtilsBase } from '@sanduc/ocr-common'
 
 export class FileUtils extends FileUtilsBase {
   static async read(url: string) {

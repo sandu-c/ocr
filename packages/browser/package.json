@@ -1,13 +1,20 @@
 {
-  "name": "@gutenye/ocr-browser",
+  "name": "@sanduc/ocr-browser",
   "version": "1.4.8",
-  "description": "Guten OCR is a high accurate text detection (OCR) Javascript/Typescript library that runs on Node.js, Browser, React Native and C++. Based on PaddleOCR and ONNX runtime",
-  "keywords": ["ocr", "paddleocr", "typescript", "onnxruntime", "web", "browser"],
+  "description": "OCR Javascript library for Node.js, Browser, React Native and C++. Based on PaddleOCR and ONNX Runtime. Fork of Guten OCR.",
+  "keywords": [
+    "ocr",
+    "paddleocr",
+    "typescript",
+    "onnxruntime",
+    "web",
+    "browser"
+  ],
   "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gutenye/ocr.git",
+    "url": "https://github.com/sandu-c/ocr.git",
     "directory": "packages/browser"
   },
   "exports": {
@@ -16,14 +23,18 @@
     "react-native": "./src/index.ts",
     "default": "./build/index.js"
   },
-  "files": ["src", "build", "!**/__tests__"],
+  "files": [
+    "src",
+    "build",
+    "!**/__tests__"
+  ],
   "scripts": {
-    "prepublishOnly": "cp ../../README.md . && ./ake build",
+    "prepublishOnly": "cp ../../README.md . && rm -rf build && bun run tsc --project tsconfig.build.json --skipLibCheck && bun run tsc-alias --project tsconfig.build.json",
     "postpublish": "rm README.md && rm -rf build"
   },
   "dependencies": {
-    "@gutenye/ocr-common": "^1.2.0",
-    "@gutenye/ocr-models": "^1.2.2",
+    "@sanduc/ocr-common": "^1.4.8",
+    "@sanduc/ocr-models": "^1.4.2",
     "onnxruntime-web": "^1.17.3"
   }
 }

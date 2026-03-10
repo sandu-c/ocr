@@ -1,6 +1,6 @@
 import filePath from 'node:path'
-import { ImageRawBase } from '@gutenye/ocr-common'
-import type { ImageRawData, LineImage, SizeOption } from '@gutenye/ocr-common'
+import { ImageRawBase } from '@sanduc/ocr-common'
+import type { ImageRawData, LineImage, SizeOption } from '@sanduc/ocr-common'
 import sharp from 'sharp'
 
 export class ImageRaw extends ImageRawBase {

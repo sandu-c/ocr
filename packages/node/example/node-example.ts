@@ -1,4 +1,4 @@
-import Ocr from '@gutenye/ocr-node'
+import Ocr from '@sanduc/ocr-node'
 
 async function main() {
   const ocr = await Ocr.create({

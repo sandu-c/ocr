@@ -24,9 +24,15 @@ jobs:
       - name: Install dependencies
         run: npm install
       
+      - name: Build packages
+        run: |
+          cd packages/common && rm -rf build && bun run tsc --project tsconfig.build.json --skipLibCheck && bun run tsc-alias --project tsconfig.build.json
+          cd ../browser && rm -rf build && bun run tsc --project tsconfig.build.json --skipLibCheck && bun run tsc-alias --project tsconfig.build.json
+          cd ../node && rm -rf build && bun run tsc --project tsconfig.build.json --skipLibCheck && bun run tsc-alias --project tsconfig.build.json
+      
       - name: Publish packages
         run: |
-          cd packages/models && npm publish --access public --provenance
-          cd ../common && npm publish --access public --provenance
-          cd ../browser && npm publish --access public --provenance --ignore-scripts
-          cd ../node && npm publish --access public --provenance --ignore-scripts
+          cd packages/models && cp ../../README.md . && npm publish --access public --provenance
+          cd ../common && cp ../../README.md . && npm publish --access public --provenance --ignore-scripts
+          cd ../browser && cp ../../README.md . && npm publish --access public --provenance --ignore-scripts
+          cd ../node && cp ../../README.md . && npm publish --access public --provenance --ignore-scripts

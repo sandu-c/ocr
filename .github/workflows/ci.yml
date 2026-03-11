@@ -62,6 +62,8 @@ jobs:
       
       - name: Publish to npm
         run: |
+          echo "ACTIONS_ID_TOKEN_REQUEST_URL: $ACTIONS_ID_TOKEN_REQUEST_URL"
+          echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN exists: $([[ -n "$ACTIONS_ID_TOKEN_REQUEST_TOKEN" ]] && echo "yes" || echo "no")"
           cd packages/models && cp ../../README.md . && npm publish --access public --provenance
           cd ../common && cp ../../README.md . && npm publish --access public --provenance --ignore-scripts
           cd ../browser && cp ../../README.md . && npm publish --access public --provenance --ignore-scripts

@@ -41,9 +41,6 @@ jobs:
     needs: build
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -64,7 +61,9 @@ jobs:
         run: |
           echo "ACTIONS_ID_TOKEN_REQUEST_URL: $ACTIONS_ID_TOKEN_REQUEST_URL"
           echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN exists: $([[ -n "$ACTIONS_ID_TOKEN_REQUEST_TOKEN" ]] && echo "yes" || echo "no")"
-          cd packages/models && cp ../../README.md . && npm publish --access public --provenance
-          cd ../common && cp ../../README.md . && npm publish --access public --provenance --ignore-scripts
-          cd ../browser && cp ../../README.md . && npm publish --access public --provenance --ignore-scripts
-          cd ../node && cp ../../README.md . && npm publish --access public --provenance --ignore-scripts
+          cd packages/models && cp ../../README.md . && npm publish --access public
+          cd ../common && cp ../../README.md . && npm publish --access public --ignore-scripts
+          cd ../browser && cp ../../README.md . && npm publish --access public --ignore-scripts
+          cd ../node && cp ../../README.md . && npm publish --access public --ignore-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

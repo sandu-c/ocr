@@ -1,6 +1,6 @@
 {
   "name": "@sanduc/ocr-browser",
-  "version": "1.4.10",
+  "version": "1.4.11",
   "description": "OCR Javascript library for Node.js, Browser, React Native and C++. Based on PaddleOCR and ONNX Runtime. Fork of Guten OCR.",
   "keywords": [
     "ocr",
@@ -18,10 +18,16 @@
     "directory": "packages/browser"
   },
   "exports": {
-    "bun": "./src/index.ts",
-    "node": "./build/index.js",
-    "react-native": "./src/index.ts",
-    "default": "./build/index.js"
+    ".": {
+      "bun": "./src/index.ts",
+      "node": "./build/index.js",
+      "react-native": "./src/index.ts",
+      "default": "./build/index.js"
+    },
+    "./vite": {
+      "types": "./build/vite-plugin.d.ts",
+      "default": "./build/vite-plugin.js"
+    }
   },
   "files": [
     "src",
@@ -33,8 +39,20 @@
     "postpublish": "rm README.md && rm -rf build"
   },
   "dependencies": {
-    "@sanduc/ocr-common": "^1.4.10",
-    "@sanduc/ocr-models": "^1.4.10",
+    "@sanduc/ocr-common": "^1.4.11",
+    "@sanduc/ocr-models": "^1.4.11",
     "onnxruntime-web": "^1.17.3"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1",
+    "vite-plugin-static-copy": "^1.0.0"
+  },
+  "peerDependencies": {
+    "vite-plugin-static-copy": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "vite-plugin-static-copy": {
+      "optional": true
+    }
   }
 }

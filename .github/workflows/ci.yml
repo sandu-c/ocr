@@ -24,5 +24,13 @@ jobs:
           cd ../browser && bun run tsc --project tsconfig.build.json --skipLibCheck && bun run tsc-alias --project tsconfig.build.json
           cd ../node && bun run tsc --project tsconfig.build.json --skipLibCheck && bun run tsc-alias --project tsconfig.build.json
       
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: builds
+          path: |
+            packages/*/build/
+          retention-days: 1
+      
       - name: Run tests
         run: bun test || echo "No tests defined"

@@ -1,7 +1,7 @@
 {
   "name": "@sanduc/ocr-common",
   "description": "OCR Javascript library for Node.js, Browser, React Native and C++. Based on PaddleOCR and ONNX Runtime. Fork of Guten OCR.",
-  "version": "1.4.9",
+  "version": "1.4.10",
   "type": "module",
   "license": "MIT",
   "repository": {
@@ -21,7 +21,12 @@
       "default": "./build/backend/splitIntoLineImages.js"
     }
   },
-  "files": ["src", "build", "tsconfig.json", "!**/__tests__"],
+  "files": [
+    "src",
+    "build",
+    "tsconfig.json",
+    "!**/__tests__"
+  ],
   "scripts": {
     "prepublishOnly": "cp ../../README.md . && rm -rf build && bun run tsc --project tsconfig.build.json && bun run tsc-alias --project tsconfig.build.json",
     "postpublish": "rm README.md && rm -rf build"

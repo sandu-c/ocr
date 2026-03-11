@@ -16,5 +16,10 @@
     "@types/bun": "latest",
     "tsc-alias": "^1.8.8",
     "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "release:patch": "./release.sh $(node -p \"require('./packages/common/package.json').version.replace(/(\\d+)$/, (m) => +m + 1)\")",
+    "release:minor": "echo 'Use: ./release.sh x.y.0'",
+    "release:major": "echo 'Use: ./release.sh x.0.0'"
   }
 }

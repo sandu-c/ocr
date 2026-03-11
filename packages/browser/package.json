@@ -1,6 +1,6 @@
 {
   "name": "@sanduc/ocr-browser",
-  "version": "1.4.12",
+  "version": "1.4.13",
   "description": "OCR Javascript library for Node.js, Browser, React Native and C++. Based on PaddleOCR and ONNX Runtime. Fork of Guten OCR.",
   "keywords": [
     "ocr",
@@ -25,8 +25,8 @@
       "default": "./build/index.js"
     },
     "./vite": {
-      "types": "./build/vite-plugin.d.ts",
-      "default": "./build/vite-plugin.js"
+      "types": "./build/ocr-vite-plugin.d.ts",
+      "default": "./build/ocr-vite-plugin.js"
     }
   },
   "files": [
@@ -39,8 +39,8 @@
     "postpublish": "rm README.md && rm -rf build"
   },
   "dependencies": {
-    "@sanduc/ocr-common": "^1.4.12",
-    "@sanduc/ocr-models": "^1.4.12",
+    "@sanduc/ocr-common": "^1.4.13",
+    "@sanduc/ocr-models": "^1.4.13",
     "onnxruntime-web": "^1.17.3"
   },
   "devDependencies": {

@@ -8,7 +8,7 @@
     "onnxruntime",
     "node"
   ],
-  "version": "1.4.15",
+  "version": "1.4.16",
   "type": "module",
   "license": "MIT",
   "repository": {
@@ -31,8 +31,8 @@
     "postpublish": "rm README.md && rm -rf build"
   },
   "dependencies": {
-    "@sanduc/ocr-common": "^1.4.15",
-    "@sanduc/ocr-models": "^1.4.15",
+    "@sanduc/ocr-common": "^1.4.16",
+    "@sanduc/ocr-models": "^1.4.16",
     "onnxruntime-node": "^1.22.0-rev",
     "sharp": "^0.34.3"
   }

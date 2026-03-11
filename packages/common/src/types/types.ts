@@ -69,10 +69,13 @@ export interface ModelBaseOptions {
 }
 
 export interface ModelCreateOptions extends ModelBaseOptions {
+  modelVersion?: 'v4' | 'v5' | 'auto' // Default: 'auto'
+  modelsBasePath?: string // Default: '/models/'
+  cacheVersion?: string // For cache busting (e.g., build ID)
   models?: {
-    detectionPath: string
-    recognitionPath: string
-    dictionaryPath: string
+    detectionPath?: string
+    recognitionPath?: string
+    dictionaryPath?: string
   }
   onnxOptions?: InferenceSession.SessionOptions
   detectionThreshold?: number // Default: 0.3

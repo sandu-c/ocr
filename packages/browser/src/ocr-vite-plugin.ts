@@ -7,7 +7,7 @@ import type { PluginOption } from 'vite'
 interface OcrVitePluginOptions {
   enableObfuscation?: boolean
   modelsPath?: string // Default: 'models/'
-  modelVersion?: 'v4' | 'v5' // Default: 'v5'
+  modelVersion?: 'v4' | 'v5' | 'auto' // Default: 'v5'
 }
 
 // Explicit model filenames
@@ -33,6 +33,27 @@ export function ocrVitePlugin(options: OcrVitePluginOptions = {}): PluginOption[
 
   const plugins: PluginOption[] = []
   const modelsSourcePath = 'node_modules/@sanduc/ocr-models/assets'
+
+  // If auto, copy all models without obfuscation
+  if (modelVersion === 'auto') {
+    plugins.push(
+      viteStaticCopy({
+        targets: [
+          {
+            src: resolve(modelsSourcePath, '*.onnx'),
+            dest: modelsPath,
+          },
+          {
+            src: resolve(modelsSourcePath, '*.txt'),
+            dest: modelsPath,
+          },
+        ],
+      })
+    )
+    return plugins
+  }
+
+  // Specific version - with optional obfuscation
   const modelFiles = MODEL_FILES[modelVersion]
 
   // Generate obfuscated names if enabled

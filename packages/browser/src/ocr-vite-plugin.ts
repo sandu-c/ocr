@@ -20,7 +20,7 @@ const MODEL_FILES = {
   v5_mobile: {
     detection: 'PP-OCRv5_mobile_det_infer.onnx',
     recognition: 'PP-OCRv5_mobile_rec_infer.onnx',
-    dictionary: 'ppocr_keys_v1.txt',
+    dictionary: 'ppocr_keys_v5.txt',
   },
   v4: {
     detection: 'ch_PP-OCRv4_det_infer.onnx',

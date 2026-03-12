@@ -14,7 +14,7 @@ const MODEL_CONFIGS = {
   v5_mobile: {
     detectionPath: 'PP-OCRv5_mobile_det_infer.onnx',
     recognitionPath: 'PP-OCRv5_mobile_rec_infer.onnx',
-    dictionaryPath: 'ppocr_keys_v1.txt',
+    dictionaryPath: 'ppocr_keys_v5.txt',
   },
   v4: {
     detectionPath: 'ch_PP-OCRv4_det_infer.onnx',

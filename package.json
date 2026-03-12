@@ -1,6 +1,6 @@
 {
   "name": "@sanduc/ocr",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "workspaces": [
     "packages/browser",
     "packages/browser/example",

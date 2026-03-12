@@ -69,7 +69,7 @@ export interface ModelBaseOptions {
 }
 
 export interface ModelCreateOptions extends ModelBaseOptions {
-  modelVersion?: 'v4' | 'v5' | 'auto' // Default: 'auto'
+  modelVersion?: 'v4' | 'v5' | 'v5_mobile' | 'auto' // Default: 'auto'
   modelsBasePath?: string // Default: '/models/'
   cacheVersion?: string // For cache busting (e.g., build ID)
   models?: {

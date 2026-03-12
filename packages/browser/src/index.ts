@@ -11,6 +11,11 @@ const MODEL_CONFIGS = {
     recognitionPath: 'PP-OCRv5_server_rec_infer.onnx',
     dictionaryPath: 'ppocr_keys_v5.txt',
   },
+  v5_mobile: {
+    detectionPath: 'PP-OCRv5_mobile_det_infer.onnx',
+    recognitionPath: 'PP-OCRv5_mobile_rec_infer.onnx',
+    dictionaryPath: 'ppocr_keys_v1.txt',
+  },
   v4: {
     detectionPath: 'ch_PP-OCRv4_det_infer.onnx',
     recognitionPath: 'ch_PP-OCRv4_rec_infer.onnx',
@@ -25,8 +30,8 @@ async function detectModels(basePath: string, cacheVersion?: string): Promise<{ 
     return cacheVersion ? `${path}?v=${cacheVersion}` : path
   }
 
-  // Try v5 first, then v4
-  for (const config of [MODEL_CONFIGS.v5, MODEL_CONFIGS.v4]) {
+  // Try v5, v5_mobile, then v4
+  for (const config of [MODEL_CONFIGS.v5, MODEL_CONFIGS.v5_mobile, MODEL_CONFIGS.v4]) {
     try {
       const detPath = buildPath(config.detectionPath)
       const response = await fetch(detPath, { method: 'HEAD' })

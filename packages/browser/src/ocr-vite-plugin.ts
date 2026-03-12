@@ -7,7 +7,7 @@ import type { PluginOption } from 'vite'
 interface OcrVitePluginOptions {
   enableObfuscation?: boolean
   modelsPath?: string // Default: 'models/'
-  modelVersion?: 'v4' | 'v5' | 'auto' // Default: 'v5'
+  modelVersion?: 'v4' | 'v5' | 'v5_mobile' | 'auto' // Default: 'v5'
 }
 
 // Explicit model filenames
@@ -16,6 +16,11 @@ const MODEL_FILES = {
     detection: 'PP-OCRv5_server_det_infer.onnx',
     recognition: 'PP-OCRv5_server_rec_infer.onnx',
     dictionary: 'ppocr_keys_v5.txt',
+  },
+  v5_mobile: {
+    detection: 'PP-OCRv5_mobile_det_infer.onnx',
+    recognition: 'PP-OCRv5_mobile_rec_infer.onnx',
+    dictionary: 'ppocr_keys_v1.txt',
   },
   v4: {
     detection: 'ch_PP-OCRv4_det_infer.onnx',

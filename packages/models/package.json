@@ -1,7 +1,7 @@
 {
   "name": "@sanduc/ocr-models",
   "description": "OCR Javascript library for Node.js, Browser, React Native and C++. Based on PaddleOCR and ONNX Runtime. Fork of Guten OCR.",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "type": "module",
   "license": "MIT",
   "repository": {

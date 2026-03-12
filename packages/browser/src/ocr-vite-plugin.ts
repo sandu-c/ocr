@@ -93,18 +93,28 @@ export function ocrVitePlugin(options: OcrVitePluginOptions = {}): PluginOption[
     })
   )
 
-  // Generate manifest if obfuscated
-  if (enableObfuscation) {
-    plugins.push({
-      name: 'ocr-manifest-generator',
-      writeBundle() {
-        const manifestPath = resolve('dist', modelsPath, 'manifest.json')
-        mkdirSync(resolve('dist', modelsPath), { recursive: true })
+  // Generate manifest
+  plugins.push({
+    name: 'ocr-manifest-generator',
+    writeBundle() {
+      const manifestPath = resolve('dist', modelsPath, 'manifest.json')
+      mkdirSync(resolve('dist', modelsPath), { recursive: true })
+      
+      if (enableObfuscation) {
+        // Obfuscated: use hashed names
         writeFileSync(manifestPath, JSON.stringify(modelNames, null, 2))
+        console.log('✅ Generated OCR model manifest (obfuscated)')
+      } else {
+        // Not obfuscated: use original names
+        writeFileSync(manifestPath, JSON.stringify({
+          detection: modelFiles.detection,
+          recognition: modelFiles.recognition,
+          dictionary: modelFiles.dictionary,
+        }, null, 2))
         console.log('✅ Generated OCR model manifest')
-      },
-    })
-  }
+      }
+    },
+  })
 
   return plugins
 }

@@ -23,7 +23,8 @@ MODELS=(
 )
 
 for model in "${MODELS[@]}"; do
-  if [ -f "$MODELS_DIR/$model" ]; then
+  # Check if file exists and is larger than 1KB (not an LFS pointer)
+  if [ -f "$MODELS_DIR/$model" ] && [ $(wc -c < "$MODELS_DIR/$model") -gt 1024 ]; then
     echo "  ✓ $model (already exists, skipping)"
   else
     echo "  ⬇ Downloading $model..."

@@ -182,3 +182,6 @@ dist
 
 venv
 vscode
+
+# Models - download from GitHub Releases instead
+packages/models/assets/*.onnx

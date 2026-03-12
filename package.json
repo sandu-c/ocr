@@ -19,7 +19,7 @@
   },
   "scripts": {
     "release:patch": "./release.sh $(node -p \"require('./packages/common/package.json').version.replace(/(\\d+)$/, (m) => +m + 1)\")",
-    "release:minor": "echo 'Use: ./release.sh x.y.0'",
-    "release:major": "echo 'Use: ./release.sh x.0.0'"
+    "release:minor": "./release.sh $(node -p \"const v=require('./packages/common/package.json').version.split('.'); v[1]=+v[1]+1; v[2]=0; v.join('.')\")",
+    "release:major": "./release.sh $(node -p \"const v=require('./packages/common/package.json').version.split('.'); v[0]=+v[0]+1; v[1]=0; v[2]=0; v.join('.')\")"
   }
 }
